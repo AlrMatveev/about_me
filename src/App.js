@@ -1,24 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
+import Menu from "./Menu";
+import Body from "./Body";
+import About from "./About";
+import Education from "./Education";
+import Technologies from "./Technologies";
+import Portfolio from "./Portfolio";
+import Contacts from "./Contacts";
+import { useState } from "react";
+
+const pages = [
+  { name: "About_me", component: <About /> },
+  { name: "Обучение", component: <Education /> },
+  { name: "Технологии", component: <Technologies /> },
+  { name: "Портфолио", component: <Portfolio /> },
+  { name: "Контакты", component: <Contacts /> },
+];
 
 function App() {
+  const [page, setPage] = useState(pages[0].name);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Menu pages={pages} setPage={setPage} />
+      <Body pages={pages} page={page} />
+    </>
   );
 }
 

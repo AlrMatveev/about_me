@@ -92,7 +92,7 @@ function Education() {
                   p: 2,
                   borderRadius: "5px",
                   backgroundColor: "#eee",
-                  // border: "3px solid #1976d2",
+                  //border: "3px solid #1976d2",
                   //backgroundImage: "url(" + e.backgroundI + ")",
                   backgroundRepeat: "no-repeat",
                   backgroundPosition: "100% 100%",
@@ -123,7 +123,7 @@ function Education() {
                 </Box>
                 <Box sx={{ mt: 3 }}>
                   <Button
-                    variant="contained"
+                    variant="outlined"
                     sx={{ textTransform: "none" }}
                     startIcon={<LinkIcon />}
                     onClick={() => {

@@ -49,6 +49,7 @@ function Menu({ pages, setPage }) {
       width: "100%",
       justifyContent: "center",
       alignItems: "center",
+      marginTop: "-20px",
     },
   };
 
@@ -69,6 +70,7 @@ function Menu({ pages, setPage }) {
               justifyContent: "center",
               position: "absolute",
               width: "100vw",
+              top: "10px",
             }}
           >
             <IconButton sx={{ color: "white" }} onClick={handleMobileMenu}>

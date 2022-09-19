@@ -74,7 +74,7 @@ function Education() {
     }, 1000);
   }, []);
   return (
-    <Grid container spacing={5}>
+    <Grid container spacing={2}>
       {items.map((e, i) => {
         return (
           <Grid key={i} item xs={12} md={6}>

@@ -28,7 +28,7 @@ function Technologies() {
     }, 1000);
   }, []);
   return (
-    <Grid container spacing={5}>
+    <Grid container spacing={4}>
       {items.map((e, i) => {
         return (
           <Grid key={i} item xs={6} md={3}>

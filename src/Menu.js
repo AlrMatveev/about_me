@@ -64,6 +64,7 @@ function Menu({ pages, setPage }) {
             {pages.map((page, i) => {
               return (
                 <Slide
+                  key={i}
                   direction="up"
                   in={mobile}
                   style={{ transitionDelay: mobile ? 50 * i + "ms" : "0ms" }}

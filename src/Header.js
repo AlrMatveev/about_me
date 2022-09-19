@@ -20,7 +20,7 @@ function Header({ page }) {
   }, [page]);
 
   return (
-    <Typography variant="h3" sx={{ pl: 1, pt: 5, pb: 5 }}>
+    <Typography variant="h3" sx={{ pl: 1, pt: 4, pb: 4 }}>
       <TransitionGroup style={{ display: "flex" }}>
         {leters.split("").map((e, i) => {
           return (

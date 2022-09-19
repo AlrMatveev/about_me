@@ -86,18 +86,20 @@ function Education() {
               }}
               {...(load ? { timeout: 1000 } : {})}
             >
-              <Card
+              <Box
                 sx={{
                   boxShadow: 2,
                   p: 2,
-                  borderRadius: "3px",
-                  backgroundColor: e.backgroundC,
-                  backgroundImage: "url(" + e.backgroundI + ")",
+                  borderRadius: "5px",
+                  backgroundColor: "#eee",
+                  // border: "3px solid #1976d2",
+                  //backgroundImage: "url(" + e.backgroundI + ")",
                   backgroundRepeat: "no-repeat",
                   backgroundPosition: "100% 100%",
                 }}
               >
-                <Box sx={{ color: e.backgroundC, filter: "invert(100%)" }}>
+                <Box>
+                  {/* sx={{ color: e.backgroundC, filter: "invert(100%)" }} */}
                   <Box>
                     <Typography variant="h6">{e.name}</Typography>
                   </Box>
@@ -131,7 +133,7 @@ function Education() {
                     Сертификат
                   </Button>
                 </Box>
-              </Card>
+              </Box>
             </Grow>
           </Grid>
         );

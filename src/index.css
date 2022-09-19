@@ -96,3 +96,22 @@ code {
 /* .avatarRamka-enter-done {
   opacity: 0.5;
 } */
+
+.mobile-menu-enter {
+  filter: blur(10px);
+  opacity: 0;
+}
+.mobile-menu-enter-active {
+  filter: blur(0px);
+  opacity: 1;
+  transition: 500ms;
+}
+.mobile-menu-exit {
+  filter: blur(0px);
+  opacity: 1;
+}
+.mobile-menu-exit-active {
+  filter: blur(10px);
+  opacity: 0;
+  transition: 500ms;
+}

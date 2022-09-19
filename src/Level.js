@@ -23,7 +23,7 @@ function Level({ level, delay }) {
                 width: "10px",
                 height: "10px",
                 border: "1px solid #1976d2",
-                m: 1,
+                m: { md: 1, xs: 0.5 },
                 boxShadow: 2,
                 borderRadius: "50%",
                 background: i < level ? "#1976d2" : "none",

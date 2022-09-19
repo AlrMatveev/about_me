@@ -37,9 +37,9 @@ function Menu({ pages, setPage }) {
     itemsMM: {
       display: "flex",
       flexDirection: "column",
-      height: "100vh",
+      height: "120vh",
       width: "100vw",
-      justifyContent: "center",
+
       alignItems: "center",
     },
   };
@@ -55,7 +55,7 @@ function Menu({ pages, setPage }) {
         mountOnEnter
       >
         <Box ref={nodeRef} sx={style.mobileMenu}>
-          <Box sx={{ display: "flex", justifyContent: "center" }}>
+          <Box sx={{ display: "flex", justifyContent: "center", m: 3 }}>
             <IconButton sx={{ color: "white" }} onClick={handleMobileMenu}>
               <CloseIcon />
             </IconButton>

@@ -15,14 +15,13 @@ function AvatarCss({ load }) {
         <Box
           sx={{
             position: "absolute",
-            top: "-5px",
-            left: "-5px",
-            width: "260px",
-            height: "260px",
+            top: "-6px",
+            left: "-6px",
+            width: "262px",
+            height: "262px",
             borderRadius: "50%",
             backgroundColor: "#1976d2",
             zIndex: "-1",
-            boxShadow: 2,
           }}
         ></Box>
       </CSSTransition>

@@ -10,12 +10,20 @@ import {
 import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
 import GitHubIcon from "@mui/icons-material/GitHub";
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import { CSSTransition } from "react-transition-group";
 
 function Menu({ pages, setPage }) {
   const [mobile, setMobile] = useState(false);
   const nodeRef = useRef(null);
+
+  useEffect(() => {
+    if (mobile) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+  }, [mobile]);
 
   const handleMobileMenu = () => {
     setMobile(!mobile);
@@ -37,9 +45,9 @@ function Menu({ pages, setPage }) {
     itemsMM: {
       display: "flex",
       flexDirection: "column",
-      height: "120vh",
+      height: "100vh",
       width: "100vw",
-
+      justifyContent: "center",
       alignItems: "center",
     },
   };
@@ -55,7 +63,14 @@ function Menu({ pages, setPage }) {
         mountOnEnter
       >
         <Box ref={nodeRef} sx={style.mobileMenu}>
-          <Box sx={{ display: "flex", justifyContent: "center", m: 3 }}>
+          <Box
+            sx={{
+              display: "flex",
+              justifyContent: "center",
+              position: "absolute",
+              width: "100vw",
+            }}
+          >
             <IconButton sx={{ color: "white" }} onClick={handleMobileMenu}>
               <CloseIcon />
             </IconButton>

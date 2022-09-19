@@ -48,13 +48,14 @@ function About() {
             <Grow
               in={load > 0}
               key={i}
-              style={{
-                transformOrigin: "0 50% 0",
-                transitionDelay: 200 * i + "ms",
+              sx={{
+                transformOrigin: { md: "0 50% 0", xs: "50% 50% 50%" },
+                p: 0.5,
               }}
+              style={{ transitionDelay: 200 * i + "ms" }}
               {...(load ? { timeout: 1000 } : {})}
             >
-              <Box sx={{ p: 0.5 }}>{e}</Box>
+              <Box>{e}</Box>
             </Grow>
           );
         })}

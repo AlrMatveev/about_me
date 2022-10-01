@@ -15,14 +15,29 @@ const items = [
     name: "Сайт начинающей веб-студии Wetop.ru",
     description:
       "Сайт начинающей веб-студии. Почти во всех проектах на сайте wetop.ru я участвовал. Гордиться особо нечем... но, тем не менее, дарагоценный опыт я получил =)",
+    technologies: ["React", "Mui"],
     git: "",
     link: "https://wetop.ru/",
   },
   {
     name: "Тестовое задание Gridnine Systems",
     description: "Успешно выполнил тестовое задание.",
+    technologies: ["React", "Redux", "Mui"],
     git: "https://github.com/AlrMatveev/test_gridnine_systems",
     link: "https://alrmatveev.github.io/test_gridnine_systems/",
+  },
+  {
+    name: "Pet-проект Weather Map",
+    description: "Pet-проект - Yandex Map Api + Weather Api free",
+    technologies: [
+      "React",
+      "ReduxToolkit",
+      "Mui",
+      "YandexMapApi",
+      "WeatherApiFree",
+    ],
+    git: "https://github.com/AlrMatveev/weather_map",
+    link: "https://alrmatveev.github.io/weather_map/",
   },
 ];
 
@@ -50,12 +65,38 @@ function Portfolio() {
                 sx={{
                   p: 1,
                   display: "flex",
+
                   alignItems: "center",
                   flexDirection: "column",
                 }}
               >
-                <Typography variant="body1">{e.name}</Typography>
-
+                <Typography variant="body1" sx={{ textAlign: "center" }}>
+                  {e.name}
+                </Typography>
+                <Typography
+                  variant="body2"
+                  sx={{
+                    display: "flex",
+                    flexWrap: "wrap",
+                    justifyContent: "center",
+                  }}
+                >
+                  {e.technologies.map((e) => {
+                    return (
+                      <Box
+                        key={e}
+                        sx={{
+                          m: 0.5,
+                          p: 0.2,
+                          border: "1px solid #1976d2",
+                          borderRadius: "3px",
+                        }}
+                      >
+                        {e}
+                      </Box>
+                    );
+                  })}
+                </Typography>
                 <ButtonGroup variant="text">
                   <Button
                     sx={{ textTransform: "none" }}

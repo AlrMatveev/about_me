@@ -5,23 +5,21 @@ import Education from "./Education";
 import Technologies from "./Technologies";
 import Portfolio from "./Portfolio";
 import Contacts from "./Contacts";
-import { useState } from "react";
-
-const pages = [
-  { name: "About_me", component: <About /> },
-  { name: "Обучение", component: <Education /> },
-  { name: "Технологии", component: <Technologies /> },
-  { name: "Портфолио", component: <Portfolio /> },
-  { name: "Контакты", component: <Contacts /> },
-];
+import { useEffect, useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { fetchPages } from "./redux/pagesSlice";
 
 function App() {
-  const [page, setPage] = useState(pages[0].name);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(fetchPages());
+  }, []);
 
   return (
     <>
-      <Menu pages={pages} setPage={setPage} />
-      <Body pages={pages} page={page} />
+      <Menu />
+      <Body />
     </>
   );
 }

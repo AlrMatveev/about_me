@@ -1,6 +1,8 @@
 import { Box, Zoom, Grid } from "@mui/material";
 import { useState, useEffect } from "react";
 import Level from "./Level";
+import { useSelector, useDispatch } from "react-redux";
+import { fetchTechnologies } from "./redux/technologiesSlice";
 
 const items = [
   { name: "React", level: 5 },
@@ -21,32 +23,34 @@ const items = [
 ];
 
 function Technologies() {
-  const [load, setLoad] = useState(false);
+  const technologies = useSelector((state) => state.technologies);
+  const [load, setLoad] = useState(true);
+  const dispatch = useDispatch();
+
   useEffect(() => {
-    setTimeout(() => {
-      setLoad(true);
-    }, 1000);
+    dispatch(fetchTechnologies());
   }, []);
   return (
     <Grid container spacing={4}>
-      {items.map((e, i) => {
-        return (
-          <Grid key={i} item xs={6} md={3}>
-            <Zoom
-              in={load}
-              style={{ transitionDelay: 100 * i + "ms" }}
-              {...(load ? { timeout: 1000 } : {})}
-            >
-              <Box sx={{ textAlign: "center" }}>
-                <Box>{e.name}</Box>
-                <Box>
-                  <Level level={e.level} delay={100 * i + 1000} />
+      {technologies.status === "loaded" &&
+        technologies.data.map((e, i) => {
+          return (
+            <Grid key={i} item xs={6} md={3}>
+              <Zoom
+                in={load}
+                style={{ transitionDelay: 100 * i + "ms" }}
+                {...(load ? { timeout: 1000 } : {})}
+              >
+                <Box sx={{ textAlign: "center" }}>
+                  <Box>{e.name}</Box>
+                  <Box>
+                    <Level level={e.level} delay={100 * i + 1000} />
+                  </Box>
                 </Box>
-              </Box>
-            </Zoom>
-          </Grid>
-        );
-      })}
+              </Zoom>
+            </Grid>
+          );
+        })}
     </Grid>
   );
 }

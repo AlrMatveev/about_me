@@ -18,7 +18,7 @@ function About() {
           setLoad(i);
         }, 200 * i);
       });
-    }, 1000);
+    }, 200);
   }, []);
 
   return (

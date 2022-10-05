@@ -30,6 +30,7 @@ function Technologies() {
   useEffect(() => {
     dispatch(fetchTechnologies());
   }, []);
+
   return (
     <Grid container spacing={4}>
       {technologies.status === "loaded" &&
@@ -38,13 +39,13 @@ function Technologies() {
             <Grid key={i} item xs={6} md={3}>
               <Zoom
                 in={load}
-                style={{ transitionDelay: 100 * i + "ms" }}
+                style={{ transitionDelay: 200 * i + "ms" }}
                 {...(load ? { timeout: 1000 } : {})}
               >
                 <Box sx={{ textAlign: "center" }}>
                   <Box>{e.name}</Box>
                   <Box>
-                    <Level level={e.level} delay={100 * i + 1000} />
+                    <Level level={e.level} delay={200 * i + 200} />
                   </Box>
                 </Box>
               </Zoom>

@@ -3,7 +3,7 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 export const fetchTechnologies = createAsyncThunk(
   "technologies/fetchPages",
   async function () {
-    const response = await fetch("/api/technologies", {
+    const response = await fetch("http://80.78.240.81:3001/api/technologies", {
       method: "GET",
       headers: { Accept: "application/json" },
     });

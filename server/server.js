@@ -1,7 +1,7 @@
 const express = require("express");
 const router = require("express").Router();
 const mysql = require("mysql2");
-const port = 3001;
+const PORT = process.env.PORT || 3001;
 
 const app = express();
 
@@ -37,11 +37,11 @@ app.get("/api/technologies", function (req, res) {
   });
 });
 
-app.listen(port, "localhost", function (err) {
+app.listen(PORT, function (err) {
   if (err) {
     console.log(err);
     return;
   }
 
-  console.log("Listening at http://localhost:" + port);
+  console.log("Listening " + PORT);
 });

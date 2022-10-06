@@ -1,6 +1,6 @@
 {
-  "proxy": "http://localhost:3001",
-  "name": "pp3",
+  "proxy": "http://180.78.240.81:3001/",
+  "name": "about_me",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

@@ -1,9 +1,0 @@
-{
-  "pages": [
-    { "name": "<About_me/>", "component": "<About />" },
-    { "name": "Обучение", "component": "<Education /> " },
-    { "name": "Технологии", "component": "<Technologies />" },
-    { "name": "Портфолио", "component": "<Portfolio />" },
-    { "name": "Контакты", "component": "<Contacts />" }
-  ]
-}

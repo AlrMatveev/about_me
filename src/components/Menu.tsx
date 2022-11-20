@@ -14,7 +14,7 @@ const style: any = {
     left: "0",
     width: "100vw",
     height: "100vh",
-    backgroundColor: "rgba(0,0,0,0.5)",
+    backgroundColor: "rgba(0,0,0,0.8)",
     display: "flex",
     justifyContent: "center",
     alignItems: "center",

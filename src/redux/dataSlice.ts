@@ -1,19 +1,16 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import type { PayloadAction } from "@reduxjs/toolkit";
 import { pages } from "./mock";
+import db from "../firebase";
+import { get, ref } from "firebase/database";
 
 export const fetchData = createAsyncThunk(
-  "weather/fetchData",
+  "page/fetchPage",
   async (page: string) => {
-    try {
-      let promise = new Promise((resolve, reject) => {
-        setTimeout(() => resolve(pages), 1000);
-      });
-      let result: any = await promise;
-      return result[page];
-    } catch (err) {
-      console.log(err);
-    }
+    console.log(page);
+    get(ref(db, "technologies/")).then((snapshot) => {
+      console.log(snapshot.val());
+    });
   }
 );
 

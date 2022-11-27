@@ -11,7 +11,7 @@ const Header: FC = () => {
     to: { opacity: 1, x: 0 },
   });
   return (
-    <div style={{ display: "flex", fontSize: "25px", margin: "10px" }}>
+    <div style={{ display: "flex", fontSize: "30px", margin: "0 0 30px 0" }}>
       {trail.map(({ x, ...otherProps }, i) => (
         <animated.div
           key={i}

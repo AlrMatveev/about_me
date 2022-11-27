@@ -60,8 +60,17 @@ const Menu: FC<IMenuProps> = ({ handleClick }) => {
               transform: y.interpolate((y) => `translate3d(0, ${y}px, 0)`),
             }}
           >
-            <animated.div style={{ padding: "10px" }}>
-              <NavLink style={{ color: "white" }} to={links[i]}>
+            <animated.div style={{ margin: "3px 0" }}>
+              <NavLink
+                style={{
+                  backgroundColor: "rgba(0,0,0,0.3)",
+                  display: "block",
+                  color: "white",
+                  padding: "7px",
+                  borderRadius: "3px",
+                }}
+                to={links[i]}
+              >
                 {items[i]}
               </NavLink>
             </animated.div>

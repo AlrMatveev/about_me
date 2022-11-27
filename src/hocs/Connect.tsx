@@ -1,6 +1,6 @@
 import React, { FC, useEffect } from "react";
 import { useAppDispatch } from "../hooks/redux";
-import { fetchData } from "../redux/dataSlice";
+import { fetchPage } from "../redux/pageSlice";
 import { useLocation } from "react-router-dom";
 
 interface IConnectProps {
@@ -13,7 +13,9 @@ const Connect: FC<IConnectProps> = ({ children }) => {
     location.pathname.length > 1 ? location.pathname.slice(1) : "about_me";
   const dispatch = useAppDispatch();
   useEffect(() => {
-    dispatch(fetchData(page));
+    setTimeout(() => {
+      dispatch(fetchPage(page));
+    }, 170);
   }, []);
   return <div>{children}</div>;
 };

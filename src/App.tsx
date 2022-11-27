@@ -19,8 +19,6 @@ const App: FC = () => {
     from: { opacity: 0, transform: "scale(0.95)", filter: "blur(13px)" },
     enter: { opacity: 1, transform: "scale(1)", filter: "blur(0)" },
     leave: { opacity: 0, transform: "scale(1.05)", filter: "blur(13px)" },
-    delay: 100,
-    config: config.default,
   });
   return (
     <Container maxWidth="md">

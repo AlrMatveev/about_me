@@ -1,8 +1,8 @@
 import { configureStore } from "@reduxjs/toolkit";
-import dataReducer from "./dataSlice";
+import pageReducer from "./pageSlice";
 
 export const store = configureStore({
-  reducer: { data: dataReducer },
+  reducer: { pageReducer },
 });
 
 // Infer the `RootState` and `AppDispatch` types from the store itself

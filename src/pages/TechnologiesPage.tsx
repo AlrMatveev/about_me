@@ -1,13 +1,19 @@
-import React, { FC, useEffect } from "react";
-import { useAppDispatch } from "../hooks/redux";
-import { fetchData } from "../redux/dataSlice";
+import React, { FC } from "react";
+import { useOutletContext } from "react-router-dom";
+import { Grid } from "@mui/material";
+import Technology from "../components/Technology";
+import Header from "../components/Header";
 
 const TechnologiesPage: FC = () => {
-  const dispatch = useAppDispatch();
-  useEffect(() => {
-    dispatch(fetchData("technologies"));
-  }, []);
-  return <div>TechnologiesPage</div>;
+  const context: any = useOutletContext();
+  return (
+    <Grid container spacing={4}>
+      {context.data &&
+        Object.entries(context.data).map((e: any, i) => {
+          return <Technology key={i} item={e} i={i} />;
+        })}
+    </Grid>
+  );
 };
 
 export default TechnologiesPage;

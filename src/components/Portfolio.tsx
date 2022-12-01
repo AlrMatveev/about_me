@@ -21,8 +21,17 @@ const Portfolio: FC<IItem> = ({ item, i }) => {
             alignItems: "center",
           }}
         >
-          <Typography variant="h6">{item[0]}</Typography>
-          <Box sx={{ display: "flex" }}>
+          <Typography sx={{ textAlign: "center" }} variant="h6">
+            {item[0]}
+          </Typography>
+          <Box
+            sx={{
+              display: "flex",
+              flexWrap: "wrap",
+              justifyContent: "center",
+              alignItems: "center",
+            }}
+          >
             {technologies &&
               technologies.map((e: string) => {
                 return (

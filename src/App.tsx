@@ -10,8 +10,9 @@ import {
   NotFoundPage,
 } from "./pages";
 import Nav from "./components/Nav";
-import { Container } from "@mui/material";
+import { Container, Box } from "@mui/material";
 import Layout from "./components/Layout";
+import Footer from "./components/Footer";
 
 const App: FC = () => {
   const location = useLocation();
@@ -23,10 +24,19 @@ const App: FC = () => {
   return (
     <Container maxWidth="md">
       <Nav />
-      <div style={{ position: "relative" }}>
+      <div
+        style={{
+          position: "relative",
+        }}
+      >
         {transitions((props, item) => (
           <animated.div style={props}>
-            <div style={{ position: "absolute", width: "100%" }}>
+            <div
+              style={{
+                position: "absolute",
+                width: "100%",
+              }}
+            >
               <Routes location={item}>
                 <Route path="/" element={<Layout />}>
                   <Route index element={<HomePage />} />

@@ -1,6 +1,7 @@
 import React, { FC, useState } from "react";
-import { useTrail, animated, config } from "react-spring";
+import { useTrail, animated, config, useTransition } from "react-spring";
 import { NavLink } from "react-router-dom";
+import GitButton from "./GitButton";
 
 interface IMenuProps {
   handleClick: () => void;
@@ -48,7 +49,12 @@ const Menu: FC<IMenuProps> = ({ handleClick }) => {
     from: { opacity: 0, y: 50 },
     to: { opacity: 1, y: 0 },
   });
-
+  const transitions = useTransition(true, {
+    from: { opacity: 0 },
+    enter: { opacity: 1 },
+    delay: 1000,
+    config: config.stiff,
+  });
   return (
     <div style={style.container} onClick={handleClick}>
       <div style={style.menu}>
@@ -63,7 +69,7 @@ const Menu: FC<IMenuProps> = ({ handleClick }) => {
             <animated.div style={{ margin: "3px 0" }}>
               <NavLink
                 style={{
-                  backgroundColor: "rgba(0,0,0,0.3)",
+                  backgroundColor: "rgba(0,0,0,0.5)",
                   display: "block",
                   color: "white",
                   padding: "7px",
@@ -76,6 +82,14 @@ const Menu: FC<IMenuProps> = ({ handleClick }) => {
             </animated.div>
           </animated.div>
         ))}
+        {transitions(
+          (styles, item) =>
+            item && (
+              <animated.div style={styles}>
+                <GitButton />
+              </animated.div>
+            )
+        )}
       </div>
     </div>
   );

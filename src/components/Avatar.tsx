@@ -13,43 +13,57 @@ const Avatar: FC = () => {
       setItem(item + 1);
     }, 500);
   }, []);
-  console.log(item);
+
   const transitions = useTransition(true, {
-    from: { opacity: 0 },
-    enter: { opacity: 1 },
-    leave: { opacity: 0 },
-    delay: 500,
-    config: config.molasses,
+    from: { opacity: 0, transform: "scale(0.5)" },
+    enter: { opacity: 1, transform: "scale(1)" },
+    delay: 0,
+    config: config.wobbly,
+  });
+  const transitions2 = useTransition(true, {
+    from: { opacity: 0, filter: "blur(13px)" },
+    enter: { opacity: 1, filter: "blur(0px)" },
+    delay: 200,
+    config: config.slow,
   });
   return (
     <div style={{ position: "relative" }}>
-      <div style={{ position: "absolute" }}>
+      <div style={{ position: "absolute", top: "-7.5px", left: "-7.5px" }}>
         {transitions(
           (styles, item) =>
             item && (
               <animated.div style={styles}>
                 <div
                   style={{
-                    width: "263px",
-                    height: "263px",
+                    width: "249px",
+                    height: "249px",
                     borderRadius: "50%",
-                    backgroundColor: "black",
-                    zIndex: 4998,
+                    border: "8px solid darkgray",
+                    backgroundColor: "darkgray",
+                    zIndex: -1,
                   }}
                 ></div>
               </animated.div>
             )
         )}
       </div>
-      <div
-        style={{
-          width: "250px",
-          height: "250px",
-          backgroundImage: "url(" + avatar + ")",
-          borderRadius: "50%",
-          zIndex: 4999,
-        }}
-      ></div>
+      {transitions2(
+        (styles, item) =>
+          item && (
+            <animated.div style={styles}>
+              <div
+                style={{
+                  width: "250px",
+                  height: "250px",
+                  backgroundImage: "url(" + avatar + ")",
+                  borderRadius: "50%",
+                  zIndex: 4999,
+                  boxShadow: "inset 0px 0px 10px rgba(0,0,0,0.9)",
+                }}
+              ></div>
+            </animated.div>
+          )
+      )}
     </div>
   );
 };

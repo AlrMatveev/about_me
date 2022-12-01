@@ -1,35 +1,50 @@
 import React from "react";
 import { useTrail, animated, config } from "react-spring";
+import { Typography, Box, Divider } from "@mui/material";
 
 const text: string[] = [
   "Приветствую! Меня зовут Адександр, и у меня серьезная страсть к React'у и анимации, созданию интуитивно понятного и динамичного пользовательского интерфейса.",
-  "Хорошо организованный человек, независимый сотрудник с большим вниманием к деталям. Фанат Рок-н-Ролла, активного отдыха и природы. Семейный человек и отец двух капризных мальчиков-близнецов.",
+  "Хорошо организованный человек, независимый сотрудник с большим вниманием к деталям. Фанат рок-н-ролла, активного отдыха и природы. Семейный человек и отец двух капризных мальчиков-близнецов.",
   "Интересуетесь всем спектром фронтенда и хочу работать над амбициозными проектами с позитивными людьми.",
 ];
 
 const About = () => {
   const trail = useTrail(text.length, {
     config: config.stiff,
-    from: { opacity: 0, x: 20 },
-    to: { opacity: 1, x: 0 },
+    from: { opacity: 0, y: 20 },
+    to: { opacity: 1, y: 0 },
     delay: 200,
   });
   return (
-    <div style={{ padding: "10px 20px" }}>
-      {trail.map(({ x, ...otherProps }, i) => (
+    <Box
+      sx={{
+        mt: { xs: "13px", md: "0px" },
+        textAlign: { xs: "center", md: "left" },
+        //pt: { sx: "40px", md: "0" },
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "center",
+        alignItems: "center",
+        height: "100%",
+      }}
+    >
+      {trail.map(({ y, ...otherProps }, i) => (
         <animated.div
           key={i}
           style={{
             ...otherProps,
-            transform: x.interpolate((x) => `translate3d(${x}px, 0, 0)`),
+            transform: y.interpolate((y) => `translate3d(0,${y}px, 0)`),
           }}
         >
           <animated.div>
-            <p>{text[i]}</p>
+            <Typography variant="body1" sx={{ p: 1 }}>
+              {text[i]}
+            </Typography>
+            <Divider />
           </animated.div>
         </animated.div>
       ))}
-    </div>
+    </Box>
   );
 };
 

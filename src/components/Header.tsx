@@ -10,6 +10,8 @@ const Header: FC = () => {
     from: { opacity: 0, x: 20 },
     to: { opacity: 1, x: 0 },
   });
+
+  if (!header) return <></>;
   return (
     <div style={{ display: "flex", fontSize: "30px", margin: "0 0 30px 0" }}>
       {trail.map(({ x, ...otherProps }, i) => (

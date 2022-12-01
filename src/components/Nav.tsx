@@ -32,8 +32,8 @@ const Nav: FC = () => {
         margin: "10px",
       }}
     >
-      <IconButton color="primary" onClick={handleOpen}>
-        <MenuIcon />
+      <IconButton size="large" color="primary" onClick={handleOpen}>
+        <MenuIcon fontSize="inherit" />
       </IconButton>
       {transitions(
         (styles, item) =>

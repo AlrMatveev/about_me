@@ -3,6 +3,7 @@ import { useAppSelector } from "../hooks/redux";
 import { Outlet } from "react-router-dom";
 import Header from "./Header";
 import Connect from "../hocs/Connect";
+import Footer from "./Footer";
 
 const Layout: FC = () => {
   const { page, status } = useAppSelector((state) => state.pageReducer);
@@ -12,6 +13,7 @@ const Layout: FC = () => {
     <Connect>
       <Header />
       <Outlet context={context} />
+      <Footer />
     </Connect>
   );
 };

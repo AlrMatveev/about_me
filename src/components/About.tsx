@@ -19,6 +19,7 @@ const About = () => {
     <Box
       sx={{
         mt: { xs: "13px", md: "0px" },
+        ml: { xs: "0px", md: "5px" },
         textAlign: { xs: "center", md: "left" },
         //pt: { sx: "40px", md: "0" },
         display: "flex",
@@ -40,7 +41,7 @@ const About = () => {
             <Typography variant="body1" sx={{ p: 1 }}>
               {text[i]}
             </Typography>
-            <Divider />
+            {trail.length - 1 !== i && <Divider />}
           </animated.div>
         </animated.div>
       ))}
